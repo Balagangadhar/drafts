@@ -1,0 +1,12 @@
+- Removing Duplicates
+- Contains Duplicates 
+- Computing Math Operations On Sets
+- Words From Keyboard Row
+- Uncommon Words From 2 Sentences 
+- String search
+
+
+- Log analysis 
+- Emotion analysis on social media
+- Price comparison accorss ecommerce portals
+- 
