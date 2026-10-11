@@ -1,0 +1,53 @@
+# Product Overview: Decision Management Platform
+
+## 1. Product Description
+
+A configurable **Decision Management Platform** for authoring, managing, versioning, validating, and executing business decision models using DMN (Decision Model and Notation).
+
+The platform will initially use **Drools as the decision execution engine** with a Java backend, while maintaining an engine-independent architecture to support alternative execution methods, including SQL-based bulk processing and external execution environments.
+
+The platform will support both managed decision execution and authoring/export-only use cases.
+
+## 2. Core Features Required
+
+- **Decision Authoring:** Create and manage DMN models, decision tables, rules, and decision dependencies.
+- **Version & Release Management:** Version models and rules, compare changes, manage approvals, and create immutable releases with pinned dependency versions.
+- **Business-Friendly Data Modeling:** Map technical fields to business-friendly names, descriptions, data types, and reusable business properties.
+- **Master Data Integration:** Resolve business entities such as customers, products, suppliers, and accounts from external systems; support controlled updates, version references, caching, and reproducible decisions where data snapshots are available.
+- **Decision Execution:** Execute decisions through Drools APIs, with support for decision chaining and multi-model orchestration.
+- **Multiple Execution Modes:** Support managed execution, SQL generation for suitable decision models, and model/artifact export for external execution.
+- **Testing & Validation:** Support test cases, regression testing, boundary validation, dependency validation, and execution-result comparisons.
+- **Governance & Audit:** Track model ownership, business descriptions, change history, approvals, publication, and rollback.
+- **Lineage & Impact Analysis:** Track dependencies across decisions, rule versions, data mappings, and master-data sources.
+- **Observability & Analytics:** Track execution metrics, errors, latency, outcomes, rule usage, and execution traces where supported by the backend.
+- **Integration APIs:** Provide REST APIs and integration interfaces for consuming applications and external execution environments.
+
+## 3. Planned Technology Stack
+
+- **Backend:** Java with Spring Boot
+- **Initial Decision Engine:** Drools
+- **Decision Modeling:** DMN, with support based on the selected engine's capabilities
+- **API Layer:** REST APIs; OpenAPI for API documentation
+- **Persistence:** Relational database such as PostgreSQL for metadata, versions, releases, mappings, and audit records
+- **Model Storage:** Versioned DMN artifacts and generated execution packages
+- **Master Data:** Integration with external systems of record; optional caching and snapshot/version references
+- **Bulk Execution:** SQL generation for a defined subset of supported decision models, targeting customer databases or data warehouses
+- **Testing:** Shared testing framework for model validation, regression, and cross-backend result comparison
+- **Observability:** Structured logging, metrics, tracing, and audit events
+- **Architecture:** Modular backend with an engine-adapter abstraction to reduce dependency on Drools-specific APIs
+
+## 4. Key Architectural Principles
+
+- Separate decision authoring, model governance, and execution.
+- Maintain a canonical, versioned decision model and immutable release manifest.
+- Pin exact model, dependency, and mapping versions for reproducible releases.
+- Keep master data in source systems wherever possible.
+- Support multiple execution backends without coupling the core platform to a single engine.
+- Apply a shared testing and validation contract across supported execution modes.
+- Treat auditability, lineage, and observability as core platform capabilities.
+
+## 5. Initial Implementation Scope
+
+Start with DMN authoring and storage, Drools-based execution, model and release versioning, business-friendly property mapping, master-data integration, REST APIs, testing, and execution audit/metrics.
+
+Design the architecture from the beginning to accommodate SQL compilation, external execution, and alternative decision engines in later phases.
